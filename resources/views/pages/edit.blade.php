@@ -13,6 +13,11 @@
 								<textarea class="mt-5 block w-full rounded-xl border-gray-400" cols="30" id="" name="content"
 								  placeholder="Votre contenu..." rows="10">{{ old('content', $post->content) }}</textarea>
 								<x-error-msg name="content" />
+								{{-- is_publish --}}
+								<div class="pt-5">
+										<label for="">Publication</label>
+										<input @checked(old('is_published', $post->is_published)) name="is_published" type="checkbox" value="is_published">
+								</div>
 								{{-- img --}}
 								<div class="py-5">
 										<input class="block w-full rounded-xl border-gray-400" name="url_img" placeholder="Url de votre image"
