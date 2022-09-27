@@ -15,7 +15,7 @@ class PostController extends Controller
      */
     public function index()
     {
-        $posts = Post::all();
+        $posts = Post::orderBy('created_at', 'desc')->limit(4)->get();
         // dd($posts);
         return view('pages.home', compact('posts'));
     }
@@ -27,7 +27,7 @@ class PostController extends Controller
      */
     public function create()
     {
-        //
+        return view('pages.create');
     }
 
     /**
@@ -38,7 +38,16 @@ class PostController extends Controller
      */
     public function store(StorePostRequest $request)
     {
-        //
+        // dd($request->all());
+        Post::create([
+            'title' => $request->title,
+            'content' => $request->content,
+            'url_img' => $request->url_img,
+            'created_at' => now()
+        ]);
+        return redirect()
+            ->route('home')
+            ->with('status', 'Le post a bien été ajouté');
     }
 
     /**
@@ -86,7 +95,7 @@ class PostController extends Controller
     {
         $post->delete();
         return redirect()
-        ->route('home')
-        ->with('status', "L'article a bien été supprimé");
+            ->route('home')
+            ->with('status', "L'article a bien été supprimé");
     }
 }

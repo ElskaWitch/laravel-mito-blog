@@ -8,5 +8,8 @@
 				<div class="bg-black px-3 py-1 rounded-xl hover:bg-gray-200 hover:text-black">
 						<a href="/about">About</a>
 				</div>
+				<div class="bg-black px-3 py-1 rounded-xl hover:bg-gray-200 hover:text-black">
+						<a href="{{ route('posts.create') }}">New Post</a>
+				</div>
 		</div>
 </div>
