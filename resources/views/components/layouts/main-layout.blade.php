@@ -23,6 +23,7 @@
 <body>
 		@include('partials.navbar._nav')
 		<div class="px-16 py-7">
+				@include('partials._session')
 				{{ $slot }}
 		</div>
 		@include('partials.footer._footer')
