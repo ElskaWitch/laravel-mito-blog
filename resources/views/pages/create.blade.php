@@ -5,10 +5,13 @@
 						@csrf
 						<div class="px-96">
 								{{-- title --}}
-								<input class="block w-full rounded-xl border-gray-400" name="title" placeholder="Titre du post" type="text">
+								<input class="block w-full rounded-xl border-gray-400" name="title" placeholder="Titre du post" type="text"
+										value="{{ old('title') }}">
+								<x-error-msg name="title" />
 								{{-- content --}}
 								<textarea class="mt-5 block w-full rounded-xl border-gray-400" cols="30" id="" name="content"
-								  placeholder="Votre contenu..." rows="10"></textarea>
+								  placeholder="Votre contenu..." rows="10">{{ old('content') }}</textarea>
+								<x-error-msg name="content" />
 								{{-- img --}}
 								<div class="py-5">
 										<input class="block w-full rounded-xl border-gray-400" name="url_img" placeholder="Url de votre image"

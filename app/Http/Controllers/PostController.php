@@ -39,6 +39,12 @@ class PostController extends Controller
     public function store(StorePostRequest $request)
     {
         // dd($request->all());
+
+        $request->validate([
+            'title' => 'required|min:5|max:180|string|unique:posts,title',
+            'content' => 'required|min:20|max:350|string'
+        ]);
+
         Post::create([
             'title' => $request->title,
             'content' => $request->content,
