@@ -1,7 +1,7 @@
 <x-layouts.main-layout title="Create">
 		<div class="container">
 				<h2 class="text-center text-4xl py-10 font-semibold text-[#6d5ba1]">Modifier Post</h2>
-				<form action="{{ route('posts.update', $post->id) }}" method="POST">
+				<form action="{{ route('posts.update', $post->id) }}" enctype="multipart/form-data" method="POST">
 						@csrf
 						@method('PUT')
 						<div class="px-96">
@@ -19,10 +19,15 @@
 										<input @checked(old('is_published', $post->is_published)) name="is_published" type="checkbox" value="is_published">
 								</div>
 								{{-- img --}}
-								<div class="py-5">
+								<div class="py-3">
+										<label for="">Choisir une image:</label>
+										<input class="block" id="" name="url_img" type="file">
+										<x-error-msg name="url_img" />
+								</div>
+								{{-- <div class="py-5">
 										<input class="block w-full rounded-xl border-gray-400" name="url_img" placeholder="Url de votre image"
 												type="text" value="https://source.unsplash.com/640x480/?animals?1">
-								</div>
+								</div> --}}
 								<div class="text-center">
 										<button class="btn btn-primary" type="submit">Envoyer</button>
 								</div>
