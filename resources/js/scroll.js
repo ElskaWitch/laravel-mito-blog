@@ -13,19 +13,19 @@ var slideR = {
     origin: 'right',
     opacity: null
 };
-var slideB = {
-    distance: '150%',
-    origin: 'bottom',
-    opacity: null,
-    scale: 0.7,  //effet d'agrandissement
-    duration: 800,
-    delay: 200,
-    // rotate: {  //effet de rotation
-    //     x: 50,
-    //     z: 100
-    // }
-};
+// var slideB = {
+//     distance: '150%',
+//     origin: 'bottom',
+//     opacity: null,
+//     scale: 0.7,  //effet d'agrandissement
+//     duration: 800,
+//     delay: 200,
+//     // rotate: {  //effet de rotation
+//     //     x: 50,
+//     //     z: 100
+//     // }
+// };
 
-ScrollReveal().reveal('#logo, #container_card', slideL);
-ScrollReveal().reveal('#container_card', slideB);
+ScrollReveal().reveal('#logo', slideL);
+// ScrollReveal().reveal('#container_card', slideB);
 ScrollReveal().reveal('#navitem', slideR);
