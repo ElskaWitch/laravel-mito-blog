@@ -15,7 +15,7 @@ class PostController extends Controller
      */
     public function index()
     {
-        $posts = Post::orderBy('updated_at', 'desc') ->paginate(8);
+        $posts = Post::orderBy('updated_at', 'desc')->paginate(8);
         // dd($posts);
         return view('pages.home', compact('posts'));
     }
@@ -39,16 +39,20 @@ class PostController extends Controller
     public function store(StorePostRequest $request)
     {
         // dd($request->all());
+        // dd($request->file('url_img'));
 
         $request->validate([
             'title' => 'required|min:5|max:180|string|unique:posts,title',
-            'content' => 'required|min:20|max:350|string'
+            'content' => 'required|min:20|max:350|string',
+            'url_img' => 'required|image|mimes:png,jpg,jpeg|max:2000'
         ]);
+
+        $validateImg = $request->file('url_img')->store('posts');
 
         Post::create([
             'title' => $request->title,
             'content' => $request->content,
-            'url_img' => $request->url_img,
+            'url_img' => $validateImg,
             'created_at' => now()
         ]);
         return redirect()
