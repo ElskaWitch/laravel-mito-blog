@@ -18,6 +18,8 @@
 		<link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet">
 		<!-- import Tailwind -->
 		@vite('resources/css/app.css')
+		{{-- scrollreveal --}}
+		<script src="https://unpkg.com/scrollreveal"></script>
 </head>
 
 <body>
@@ -27,6 +29,9 @@
 				{{ $slot }}
 		</div>
 		@include('partials.footer._footer')
+
+		{{-- Js se mets tjrs avant la fin de body --}}
+		@vite('resources/js/app.js')
 </body>
 
 </html>
