@@ -16,6 +16,7 @@ $styleLink = 'bg-black px-3 py-1 rounded-xl hover:bg-blue-200 hover:text-black';
 				@endguest
 				@auth
 						<x-btn-logout />
+						{{-- <span>Hello, {{ Auth::user()->name }}</span> --}}
 				@endauth
 		</div>
 </nav>
